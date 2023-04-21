@@ -1,16 +1,20 @@
 ### Hi there 👋
 
 
-**imabhinavojha/imabhinavojha** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+I'm Abhianv Ojha.
 
-Here are some ideas to get you started:
+## Skills
+- Java
+- Java Script
+- Mongo DB
+- Oracle
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+## Projects
+- [Fantail (YBL)](link)
+- [M2W (ICICI)](link)
+- [Marketplace (Fynd)](link)
 
+## Contact
+- [Email](mailto:abhinavojha59@hotmail.com)
+- [LinkedIn](linkedin.com/in/abhinavojha95)
+- [Twitter](twitter.com/imabhinavojha)
