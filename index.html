@@ -1,1 +1,224 @@
-<h1>Hello Abhinav</h1>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SDET Portfolio — Abhinav Ojha</title>
+  <meta name="description" content="SDET / Automation Engineer portfolio - Test automation, API, Performance, QA, Selenium, Playwright, Java, Python" />
+  <style>
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #98a1b3;
+      --accent: #6ee7b7;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --max-width: 980px;
+      --radius: 14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg, #071026 0%, var(--bg) 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 18px;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:18px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:26px;
+      align-items:start;
+    }
+    /* Sidebar */
+    .sidebar{
+      background: linear-gradient(180deg, var(--glass), var(--glass-2));
+      border-radius:var(--radius);
+      padding:22px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .avatar{
+      width:100%;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .avatar svg{width:84px;height:84px;border-radius:12px;background:linear-gradient(135deg,#0ea5a6,#7c3aed);padding:10px;}
+    .name{font-size:18px;font-weight:700}
+    .role{color:var(--muted);font-size:13px;margin-top:6px}
+    .bio{font-size:13px;color:var(--muted);line-height:1.45}
+    .pill{display:inline-block;padding:8px 12px;border-radius:12px;background:rgba(110,231,183,0.08);color:var(--accent);font-weight:600;font-size:13px}
+    .section-title{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:rgba(255,255,255,0.02);padding:8px 10px;border-radius:10px;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+    .contact{margin-top:auto}
+    .contact a{display:block;text-decoration:none;color:#cfeef0;padding:10px 12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02);margin-bottom:8px}
+
+    /* Main */
+    .main{
+      padding:18px 6px;
+    }
+    .hero{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px
+    }
+    .headline{font-size:20px;font-weight:700;margin:0}
+    .sub{color:var(--muted);font-size:13px;margin-top:6px}
+    .actions{display:flex;gap:10px}
+    .btn{background:linear-gradient(90deg,#0ea5a6,#7c3aed);padding:10px 14px;border-radius:10px;color:#042022;font-weight:700;text-decoration:none;border:none;cursor:pointer}
+    .outline{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;color:var(--muted);text-decoration:none}
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));padding:18px;border-radius:14px;margin-bottom:16px;border:1px solid rgba(255,255,255,0.02)}
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+    .project h4{margin:0 0 6px 0}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+    .meta{display:flex;gap:10px;margin-top:10px;color:var(--muted);font-size:13px}
+
+    .table{width:100%;border-collapse:collapse}
+    .table td{padding:8px 6px;border-bottom:1px dashed rgba(255,255,255,0.02);font-size:13px}
+
+    footer{color:var(--muted);font-size:13px;text-align:center;margin-top:8px}
+
+    @media (max-width:880px){
+      .wrap{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:1fr}
+      .avatar svg{width:72px;height:72px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main">
+    <aside class="sidebar" aria-label="Profile sidebar">
+      <div class="avatar">
+        <!-- simple SVG avatar placeholder -->
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <rect width="100%" height="100%" rx="18" fill="url(#g)"/>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#0ea5a6"/>
+              <stop offset="1" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <g transform="translate(80,40)" fill="rgba(255,255,255,0.95)">
+            <circle cx="176" cy="116" r="64" opacity="0.95" />
+            <rect x="64" y="220" width="224" height="110" rx="20" opacity="0.06"/>
+          </g>
+        </svg>
+        <div>
+          <div class="name">Your Name</div>
+          <div class="role">SDET • Test Automation Engineer</div>
+          <div class="pill">7+ years • Java, Playwright, Selenium</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">About</div>
+        <div class="bio">I build reliable automation suites, test APIs, validate integrations and run performance tests. I enjoy making flaky tests robust and improving CI pipelines.</div>
+      </div>
+
+      <div>
+        <div class="section-title">Skills</div>
+        <div class="skills">
+          <span class="skill">Java</span>
+          <span class="skill">Playwright</span>
+          <span class="skill">Selenium</span>
+          <span class="skill">REST API</span>
+          <span class="skill">Postman</span>
+          <span class="skill">K6</span>
+          <span class="skill">CI/CD</span>
+          <span class="skill">SQL</span>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="section-title">Contact</div>
+        <a href="mailto:youremail@example.com">youremail@example.com</a>
+        <a href="#" id="githubLink">github.com/your-username</a>
+        <a href="#" id="resumeLink">Download Resume</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <div>
+          <h1 class="headline">SDET / Automation Engineer</h1>
+          <div class="sub">Experienced in automation frameworks, API testing, performance testing and CI integration. Open to roles in test automation, SDET and quality engineering.</div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="outline" href="#contact">Contact</a>
+        </div>
+      </header>
+
+      <section class="card" id="projects">
+        <h3 style="margin-top:0">Selected Projects</h3>
+        <p style="margin:6px 0;color:var(--muted);font-size:13px">A few highlights — link to repositories and short descriptions.</p>
+        <div class="projects-grid">
+          <article class="project">
+            <h4>Automation Framework — Playwright + Java</h4>
+            <p>Modular Playwright framework with page objects, test data management and reporting. Pipelines integrated with GitHub Actions.</p>
+            <div class="meta"><span>Tests: End-to-end</span><span>CI: GitHub Actions</span></div>
+          </article>
+
+          <article class="project">
+            <h4>API Test-suite — RestAssured</h4>
+            <p>Comprehensive contract and regression tests for microservices with contract validation and schema checks.</p>
+            <div class="meta"><span>Type: API</span><span>Reports: Allure</span></div>
+          </article>
+
+          <article class="project">
+            <h4>Performance Tests — k6</h4>
+            <p>Load testing pipelines to detect bottlenecks and set SLOs. Automated smoke and soak runs on PRs.</p>
+            <div class="meta"><span>Tool: k6</span><span>CI: Jenkins</span></div>
+          </article>
+
+          <article class="project">
+            <h4>Flaky Test Remediation</h4>
+            <p>Introduced retry policies and stability metrics; reduced flaky failures by 40% in CI.</p>
+            <div class="meta"><span>Impact: Stability</span><span>Metric: -40% flakiness</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card" id="experience">
+        <h3 style="margin-top:0">Experience & Education</h3>
+        <table class="table">
+          <tr><td style="width:50%">Shopsense Retail Technologies Ltd</td><td style="text-align:right">SDET • 2022 – Present</td></tr>
+          <tr><td>Previous Company</td><td style="text-align:right">Automation Engineer • 2018 – 2022</td></tr>
+          <tr><td>BCA — Subharti University</td><td style="text-align:right">Graduated 2024</td></tr>
+        </table>
+      </section>
+
+      <section class="card" id="contact">
+        <h3 style="margin-top:0">Contact & Quick Info</h3>
+        <table class="table">
+          <tr><td>Location</td><td style="text-align:right">India</td></tr>
+          <tr><td>Notice Period</td><td style="text-align:right">60 days</td></tr>
+          <tr><td>Preferred Roles</td><td style="text-align:right">SDET, Automation Architect, Test Lead</td></tr>
+        </table>
+        <p style="margin-top:12px;color:var(--muted);font-size:13px">Want this page customized (colors, sections, or to include your real projects)? Edit the HTML placeholders: <code>Your Name</code>, <code>youremail@example.com</code>, and the GitHub & resume links.</p>
+      </section>
+
+      <footer>
+        Built with care • Edit this single HTML file and push to your GitHub Pages to host as a live portfolio.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
