@@ -34,7 +34,7 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 </p>
 
 <p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=imabhinavojha&theme=minimal&hide_border=true&color=4338CA&line=4338CA&point=161821" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=imabhinavojha&theme=minimal&hide_border=true" />
 </p>
 
 > These cards are live images — GitHub Stats, streaks, and the activity graph re-render themselves on every profile visit, so they always reflect your latest commits without you touching this file.
@@ -57,7 +57,7 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 ### 🏆 Trophies
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=imabhinavojha&theme=flat&no-frame=true&column=6&margin-w=8&title=Commits,Stars,Repositories,Followers" />
+  <img src="https://github-profile-trophy.vercel.app/?username=imabhinavojha&theme=flat&no-frame=true&column=6&margin-w=8" />
 </p>
 
 ---
