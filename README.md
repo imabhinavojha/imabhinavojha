@@ -46,10 +46,6 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 
 > This block updates itself — see the workflow setup below to wire it up.
 
-### 🚀 Featured projects
-
-| Project | Description |
-|---|---|
 ### 🚀 Featured Projects
 
 | Project | Description |
