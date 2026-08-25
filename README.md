@@ -30,7 +30,7 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=imabhinavojha&hide_border=true&theme=default&ring=4338CA&fire=4338CA" />
+  <img src="https://github-readme-streak-stats-eight.vercel.app/?user=imabhinavojha&hide_border=true&theme=default&ring=4338CA&fire=4338CA" />
 </p>
 
 <p align="center">
