@@ -1,364 +1,184 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>SDET Portfolio — Abhinav Ojha</title>
-  <meta name="description" content="SDET / Automation Engineer portfolio - Test automation, API, Performance, QA, Selenium, Playwright, Java, Python" />
-  <style>
-    :root{
-      --bg: #0f1724;
-      --card: #0b1220;
-      --muted: #98a1b3;
-      --accent: #6ee7b7;
-      --glass: rgba(255,255,255,0.03);
-      --glass-2: rgba(255,255,255,0.02);
-      --max-width: 980px;
-      --radius: 14px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body {
-      margin:0;
-      background: #0f1724; /* Single solid color */
-      color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:40px 18px;
-      min-height:100vh;
-      overflow-y:auto;
-    }
-    .wrap{
-      width:100%;
-      max-width:var(--max-width);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:18px;
-      box-shadow: 0 8px 30px rgba(2,6,23,0.7);
-      padding:28px;
-      display:grid;
-      grid-template-columns: 320px 1fr;
-      gap:26px;
-      align-items:start;
-    }
-    /* Sidebar */
-    .sidebar{
-      background: linear-gradient(180deg, var(--glass), var(--glass-2));
-      border-radius:var(--radius);
-      padding:22px;
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      gap:18px;
-      border:1px solid rgba(255,255,255,0.03);
-    }
-    .avatar{
-      width:100%;
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .avatar svg{
-      width:84px; height:84px;
-      border-radius:12px;
-      background:linear-gradient(135deg,#0ea5a6,#7c3aed);
-      padding:10px;
-      flex-shrink: 0;
-    }
-    .name{font-size:18px;font-weight:700; color:#6ee7b7;}
-    .role{color:var(--muted);font-size:13px;margin-top:6px}
-    .pill{
-      display:inline-block;
-      padding:8px 12px;
-      border-radius:12px;
-      background:rgba(110,231,183,0.08);
-      color:var(--accent);
-      font-weight:600;
-      font-size:13px;
-    }
-    .section-title{
-      font-size:13px;
-      color:var(--muted);
-      margin-bottom:8px;
-      border-bottom: 1px solid rgba(110,231,183,0.2);
-      padding-bottom: 6px;
-    }
-    .skills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px
-    }
-    .skill{
-      background:rgba(255,255,255,0.02);
-      padding:8px 10px;
-      border-radius:10px;
-      font-size:13px;
-      border:1px solid rgba(255,255,255,0.02);
-      transition: background-color 0.3s, border-color 0.3s;
-      cursor: default;
-    }
-    .skill:hover {
-      background-color: var(--accent);
-      color: #042022;
-      border-color: var(--accent);
-    }
-    .contact{
-      margin-top:auto;
-    }
-    .contact a{
-      display:block;
-      text-decoration:none;
-      color:#cfeef0;
-      padding:10px 12px;
-      border-radius:10px;
-      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
-      border:1px solid rgba(255,255,255,0.02);
-      margin-bottom:8px;
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    .contact a:hover{
-      background-color: var(--accent);
-      color: #042022;
-      border-color: var(--accent);
-    }
-    /* Main */
-    .main{
-      padding:18px 6px;
-    }
-    .hero{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px
-    }
-    .headline{
-      font-size:20px;
-      font-weight:700;
-      margin:0;
-      color: #6ee7b7;
-    }
-    .sub{
-      color:var(--muted);
-      font-size:13px;
-      margin-top:6px;
-    }
-    .actions{
-      display:flex;
-      gap:10px;
-    }
-    .btn{
-      background:linear-gradient(90deg,#0ea5a6,#7c3aed);
-      padding:10px 14px;
-      border-radius:10px;
-      color:#042022;
-      font-weight:700;
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: linear-gradient(90deg, #7c3aed, #0ea5a6);
-    }
-    .outline{
-      background:transparent;
-      border:1px solid rgba(255,255,255,0.06);
-      padding:10px 14px;
-      border-radius:10px;
-      color:var(--muted);
-      text-decoration:none;
-      transition: background-color 0.3s, color 0.3s;
-    }
-    .outline:hover {
-      background-color: var(--accent);
-      color: #042022;
-      border-color: var(--accent);
-    }
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));
-      padding:18px;
-      border-radius:14px;
-      margin-bottom:16px;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:12px;
-    }
-    .project{
-      padding:12px;
-      border-radius:10px;
-      background:rgba(255,255,255,0.01);
-      border:1px solid rgba(255,255,255,0.02);
-      transition: box-shadow 0.3s;
-      cursor:default;
-    }
-    .project:hover {
-      box-shadow: 0 6px 15px rgba(110,231,183,0.5);
-    }
-    .project h4{
-      margin:0 0 6px 0;
-      color: #6ee7b7;
-    }
-    .project p{
-      margin:0;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.25;
-    }
-    .meta{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .table{
-      width:100%;
-      border-collapse:collapse;
-    }
-    .table td{
-      padding:8px 6px;
-      border-bottom:1px dashed rgba(255,255,255,0.02);
-      font-size:13px;
-    }
-    footer{
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-      margin-top:8px;
-    }
-    @media (max-width:880px){
-      .wrap{grid-template-columns:1fr;}
-      .projects-grid{grid-template-columns:1fr}
-      .avatar svg{width:72px;height:72px}
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Abhinav Ojha — SDET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117; --panel:#11161d; --line:#1f2630;
+    --text:#c9d1d9; --muted:#6e7681; --white:#eef2f6;
+    --green:#5fd97a; --amber:#e8b339; --rust:#e8916a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+  section{padding:80px 0; border-bottom:1px solid var(--line);}
+
+  /* HERO / terminal — from concept 1 */
+  .hero{padding-top:100px;}
+  .prompt-line{color:var(--muted); font-size:13px; margin-bottom:18px; font-family:'JetBrains Mono',monospace;}
+  .prompt-line span{color:var(--green);}
+  .name{font-family:'JetBrains Mono',monospace; font-size:44px; font-weight:700; color:var(--white); letter-spacing:-0.5px;}
+  .role{color:var(--green); font-size:16px; margin-top:10px; font-family:'JetBrains Mono',monospace;}
+  .desc{color:var(--muted); max-width:560px; margin-top:18px; font-size:15px;}
+
+  .terminal{
+    margin-top:44px; background:var(--panel); border:1px solid var(--line);
+    border-radius:8px; overflow:hidden;
+  }
+  .term-bar{display:flex; gap:6px; padding:12px 14px; border-bottom:1px solid var(--line);}
+  .dot{width:10px; height:10px; border-radius:50%; background:#3a3f47;}
+  .term-body{padding:20px; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .term-body .cmd{color:var(--white); margin-bottom:14px;}
+  .term-body .cmd span{color:#7aa2f7;}
+  .test-row{display:flex; justify-content:space-between; opacity:0; animation:reveal .4s forwards;}
+  .test-row .t{color:var(--text);}
+  .test-row .status{color:var(--green);}
+  .test-row:nth-child(2){animation-delay:.3s}
+  .test-row:nth-child(3){animation-delay:.6s}
+  .test-row:nth-child(4){animation-delay:.9s}
+  .test-row:nth-child(5){animation-delay:1.2s}
+  .summary{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); color:var(--green); opacity:0; animation:reveal .4s forwards; animation-delay:1.5s; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  @keyframes reveal{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+  /* SPECIFICATION — SKILLS — adapted from concept 2, dark version */
+  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:30px;}
+  .section-head .num{font-family:'JetBrains Mono',monospace; color:var(--rust); font-size:13px;}
+  .section-head h2{font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; color:var(--white); letter-spacing:.5px;}
+
+  .spec-grid{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line); border-left:1px solid var(--line); margin-bottom:32px;
+  }
+  .spec-grid div{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 16px;}
+  .spec-grid .k{font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--muted); letter-spacing:.5px;}
+  .spec-grid .v{font-size:14px; margin-top:4px; font-weight:500; color:var(--white);}
+
+  .skill-sheet{display:flex; flex-wrap:wrap; gap:10px;}
+  .skill-sheet span{
+    font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--panel);
+    border:1px solid var(--line); color:var(--text); padding:7px 13px; border-radius:2px;
+  }
+  .skill-sheet span:hover{border-color:var(--green); color:var(--green);}
+
+  /* PROJECTS as suites — from concept 1 */
+  .suite{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 24px; margin-bottom:14px;}
+  .suite-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
+  .suite-name{color:var(--white); font-weight:600; font-size:15px;}
+  .badge{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green); border:1px solid var(--green); border-radius:4px; padding:2px 8px;}
+  .suite p{color:var(--muted); font-size:14px; margin-bottom:10px;}
+  .stack{font-family:'JetBrains Mono',monospace; font-size:12px; color:#7aa2f7;}
+
+  /* EXPERIENCE as git log */
+  .log{border-left:2px solid var(--line); padding-left:22px; margin-left:6px;}
+  .commit{position:relative; padding-bottom:32px;}
+  .commit::before{content:''; position:absolute; left:-27px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--green); border:2px solid var(--bg);}
+  .commit .role{color:var(--white); font-size:15px; font-weight:600;}
+  .commit .co{color:var(--green); font-size:13px; margin-top:2px;}
+  .commit .when{color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:12px; margin-top:4px;}
+
+  footer{padding:60px 0; text-align:center;}
+  .contact-row{display:flex; justify-content:center; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .contact-row a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .contact-row a:hover{color:var(--green); border-color:var(--green);}
+</style>
 </head>
 <body>
-  <div class="wrap" role="main">
-    <aside class="sidebar" aria-label="Profile sidebar">
-      <div class="avatar">
-        <img src="Photo.jpg" alt="Abhinav Ojha" style="width:84px; height:84px; border-radius:12px; object-fit:cover;"/>
-        <div>
-          <div class="name">Abhinav Ojha</div>
-          <div class="role">SDET-2 • Software Development Engineer in Test</div>
-          <br>
-          <div class="pill">8+ Yrs • Java, Javascript, Selenium, Playwright</div>
-        </div>
+  <div class="wrap hero">
+    <div class="prompt-line"><span>abhinav@sdet</span> ~ % whoami</div>
+    <div class="name">Abhinav Ojha</div>
+    <div class="role">Senior SDET · Test Automation Engineer</div>
+    <div class="desc">8+ years building test automation that ships confidence, not noise — API, UI, and performance testing across Playwright, Selenium, and Java/JS stacks.</div>
+
+    <div class="terminal">
+      <div class="term-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="term-body">
+        <div class="cmd">$ <span>npx playwright test</span> --project=core</div>
+        <div class="test-row"><span class="t">✓ checkout flow completes end to end</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ API contract validated (Axios/Mocha)</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ POM suite — regression pack</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ mock layer — Masqrader (FastAPI)</span><span class="status">passed</span></div>
+        <div class="summary">5 passed · 0 failed · 8+ yrs in production &nbsp;→</div>
       </div>
-
-      <div>
-        <div class="section-title">About</div>
-        <div class="bio">
-          I build reliable automation suites, test APIs, validate integrations and run performance tests. I enjoy making flaky tests robust and improving CI pipelines.
-        </div>
-      </div>
-
-      <div>
-        <div class="section-title">Skills</div>
-        <div class="skills">
-          <span class="skill">Java</span>
-          <span class="skill">JavaScript</span>
-          <span class="skill">Python</span>
-          <span class="skill">Playwright</span>
-          <span class="skill">Selenium</span>
-          <span class="skill">Axios</span>
-          <span class="skill">REST API</span>
-          <span class="skill">Postman</span>
-          <span class="skill">Mocha</span>
-          <span class="skill">FastAPI</span>
-          <span class="skill">CI/CD</span>
-          <span class="skill">SQL</span>
-          <span class="skill">Mongo DB</span>
-          <span class="skill">K6</span>
-        </div>
-      </div>
-
-      <div class="contact">
-        <div class="section-title">Contact</div>
-        <a href="mailto:abhinavojha59@hotmail.com">abhinavojha59@hotmail.com</a>
-        <a href="tel:+919794757466">+91-9794757466</a>
-        <a href="https://github.com/imabhinavojha" target="_blank" rel="noopener noreferrer">github/imabhinavojha</a>
-        <a href="https://www.linkedin.com/in/abhinavojha95/" target="_blank" rel="noopener noreferrer">linkedin/abhinavojha95</a>
-        <a href="Abhinav_Ojha_SDET2.pdf" download>Download Resume</a>
-      </div>
-    </aside>
-
-    <main class="main">
-      <header class="hero">
-        <div>
-          <h1 class="headline">SDET-2 / Automation Engineer</h1>
-          <div class="sub">
-            I am a dedicated Software Engineer with a profound passion for my craft, constantly seeking opportunities to forge meaningful connections within the tech industry. While I find fulfillment in every facet of my role, I have a special affinity for the project's client-engagement phase. Collaborating closely with clients to comprehend their distinct business goals is where I thrive. During this dynamic collaborative process, creativity flourishes, and innovative ideas take center stage – a facet of my work that I truly relish. My journey as a Software Engineer has been characterized by a commitment to delivering solutions that align intricately with the client's aspirations, and this collaborative journey is what energizes and motivates me every day. Let's connect and explore the synergies that lie at the intersection of technology and business objectives. Together, we can not only drive innovation but also cultivate meaningful relationships that propel our industry forward.
-          </div>
-        </div>
-      </header>
-
-      <section class="card" id="projects">
-        <h3 style="margin-top:0">Projects</h3>
-        <p style="margin:6px 0;color:var(--muted);font-size:13px">A few highlights — link to repositories and short descriptions.</p>
-        <div class="projects-grid">
-         
-          <article class="project">
-            <h4>API Testing (Axios, Node, Mocha) — Jio (Fynd)</h4>
-            <p>Engineered comprehensive API tests using Axios, Node.js, and Mocha achieving 80% test coverage and accelerated feedback loop.</p>
-            <div class="meta"><span>Tech: Axios, Node.js, Mocha</span></div>
-          </article>
-
-          <article class="project">
-            <h4>UI Automation (Playwright, JavaScript) — Jio (Fynd)</h4>
-            <p>Architected and maintained robust Page Object Model (POM) frameworks to boost UI automation coverage and improve testing efficiency by 65%.</p>
-            <div class="meta"><span>Tech: Playwright, JavaScript</span></div>
-          </article>
-
-          <article class="project">
-            <h4>Masqrader — Mock API Platform (FastAPI) — Jio (Fynd)</h4>
-            <p>Designed and implemented a scalable mock API solution with FastAPI, streamlining developer workflows and reducing backend development time by 90%.</p>
-            <div class="meta"><span>Tech: FastAPI, Python</span></div>
-          </article>
-
-          <article class="project">
-            <h4>UI Automation (Selenium, Java) — CredenTek Software Pvt Ltd</h4>
-            <p>Developed and maintained scalable Selenium WebDriver automation framework with Page Object Model, reducing manual testing effort by 40%.</p>
-            <div class="meta"><span>Tech: Selenium, Java</span></div>
-          </article>
-
-          <article class="project">
-            <h4>API Testing (Postman, REST Assured) — CredenTek Software Pvt Ltd</h4>
-            <p>Created comprehensive API test suites using Postman and REST Assured, ensuring 100% API test coverage and robust integration validation.</p>
-            <div class="meta"><span>Tech: Postman, REST Assured</span></div>
-          </article>
-          
-        </div>
-      </section>
-
-      <section class="card" id="experience">
-        <h3 style="margin-top:0">Experience & Education</h3>
-        <table class="table">
-          <tr><td style="width:60%">Jio (FYND), Noida</td><td style="text-align:right">SDET-2 • July 2021 – Present</td></tr>
-          <tr><td>Credentek Software Consultancy Pvt Ltd, Pune</td><td style="text-align:right">Software Test Engineer • Nov 2017 – Jun 2021</td></tr>
-          <tr><td>Bachelor of Computer Application — Swami Vivekanand Subharti University</td><td style="text-align:right">Graduated 2016</td></tr>
-        </table>
-      </section>
-
-      <section class="card" id="contact">
-        <h3 style="margin-top:0">Quick Info</h3>
-        <table class="table">
-          <tr><td>Notice Period</td><td style="text-align:right">30 days</td></tr>
-          <tr><td>Preferred Roles</td><td style="text-align:right">SD2T-2, SDET-3, Test Lead</td></tr>
-        </table>
-      </section>
-
-      <footer>
-        Built with care • Edit this single HTML file and host on GitHub Pages for your live portfolio.
-      </footer>
-    </main>
+    </div>
   </div>
+
+  <section class="wrap">
+    <div class="section-head"><span class="num">§1</span><h2>Specification — skills</h2></div>
+    <div class="spec-grid">
+      <div><div class="k">Experience</div><div class="v">8+ years</div></div>
+      <div><div class="k">Core stack</div><div class="v">Playwright / Java</div></div>
+      <div><div class="k">Notice period</div><div class="v">30 days</div></div>
+    </div>
+    <div class="skill-sheet">
+      <span>Java</span><span>JavaScript</span><span>Python</span><span>Playwright</span>
+      <span>Selenium</span><span>Axios</span><span>REST API</span><span>Postman</span>
+      <span>Mocha</span><span>FastAPI</span><span>CI/CD</span><span>SQL</span>
+      <span>MongoDB</span><span>K6</span><span>JMeter</span><span>Groovy</span>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><span class="num">§2</span><h2>Test suites — projects</h2></div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">API testing — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Engineered comprehensive API tests achieving 80% coverage and a faster feedback loop.</p>
+      <div class="stack">axios · node.js · mocha</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">UI automation — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Built and maintained a POM framework, lifting UI automation coverage and efficiency by 65%.</p>
+      <div class="stack">playwright · javascript</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">Masqrader mock platform — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Designed a scalable mock API layer, cutting backend dev time by 90%.</p>
+      <div class="stack">fastapi · python</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">UI automation — CredenTek</span><span class="badge">PASS</span></div>
+      <p>Selenium WebDriver + POM framework, cutting manual testing effort by 40%.</p>
+      <div class="stack">selenium · java</div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="section-head"><span class="num">§3</span><h2>Experience log</h2></div>
+    <div class="log">
+      <div class="commit">
+        <div class="role">Senior Software Test Engineer (Solution Navigator)</div>
+        <div class="co">Johnson Controls International PLC, Bengaluru</div>
+        <div class="when">Apr 2026 → present</div>
+      </div>
+      <div class="commit">
+        <div class="role">Software Test Engineer (Marketplace Extension)</div>
+        <div class="co">FYND, Bengaluru</div>
+        <div class="when">Jul 2021 → Mar 2026</div>
+      </div>
+      <div class="commit">
+        <div class="role">Software Test Engineer (Fanatil)</div>
+        <div class="co">Credentek Software & Consultancy, Pune</div>
+        <div class="when">Nov 2017 → Jun 2021</div>
+      </div>
+      <div class="commit">
+        <div class="role">Bachelor of Computer Application</div>
+        <div class="co">Swami Vivekanand Subharti University</div>
+        <div class="when">2016</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="contact-row">
+      <a href="mailto:abhinavojha59@hotmail.com">email</a>
+      <a href="https://github.com/imabhinavojha">github</a>
+      <a href="https://www.linkedin.com/in/abhinavojha95/">linkedin</a>
+      <a href="#">resume.pdf</a>
+    </div>
+  </footer>
 </body>
 </html>
