@@ -25,8 +25,8 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 ### 📊 GitHub stats
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=imabhinavojha&show_icons=true&theme=default&hide_border=true&title_color=4338CA&icon_color=4338CA" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=imabhinavojha&layout=compact&hide_border=true&theme=default&title_color=4338CA&langs_count=8" />
+  <img height="165" src="https://github-stats-extended.vercel.app/api?username=imabhinavojha&show_icons=true&theme=default&hide_border=true&title_color=4338CA&icon_color=4338CA" />
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=imabhinavojha&layout=compact&hide_border=true&theme=default&title_color=4338CA&langs_count=8" />
 </p>
 
 <p align="center">
