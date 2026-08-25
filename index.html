@@ -3,187 +3,221 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Abhinav Ojha — SDET</title>
+<title>Abhinav Ojha — Senior SDET</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0d1117; --panel:#11161d; --line:#1f2630;
-    --text:#c9d1d9; --muted:#6e7681; --white:#eef2f6;
-    --green:#5fd97a; --amber:#e8b339; --rust:#e8916a;
+    --bg:#f3f4f8; --card:#ffffff; --border:#e3e5ee;
+    --ink:#161821; --sub:#6b6f80; --indigo:#4338ca; --indigo-soft:#eef0ff;
+    --ok:#0f9d58; --ok-soft:#e7f6ee;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;}
-  .mono{font-family:'JetBrains Mono',monospace;}
-  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
-  section{padding:80px 0; border-bottom:1px solid var(--line);}
+  body{background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.6;}
+  .display{font-family:'Space Grotesk',sans-serif;}
+  .shell{max-width:960px; margin:0 auto; padding:36px 24px 80px;}
 
-  /* HERO / terminal — from concept 1 */
-  .hero{padding-top:100px;}
-  .prompt-line{color:var(--muted); font-size:13px; margin-bottom:18px; font-family:'JetBrains Mono',monospace;}
-  .prompt-line span{color:var(--green);}
-  .name{font-family:'JetBrains Mono',monospace; font-size:44px; font-weight:700; color:var(--white); letter-spacing:-0.5px;}
-  .role{color:var(--green); font-size:16px; margin-top:10px; font-family:'JetBrains Mono',monospace;}
-  .desc{color:var(--muted); max-width:560px; margin-top:18px; font-size:15px;}
+  /* Top bar */
+  .topbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:28px;}
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand .mark{width:34px; height:34px; border-radius:9px; background:var(--indigo); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px;}
+  .brand span{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15px;}
+  .nav{display:flex; gap:22px; font-size:13px; color:var(--sub);}
+  .nav a{color:var(--sub); text-decoration:none;}
+  .nav a:hover{color:var(--ink);}
 
-  .terminal{
-    margin-top:44px; background:var(--panel); border:1px solid var(--line);
-    border-radius:8px; overflow:hidden;
+  /* Header card */
+  .header-card{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:34px 34px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; margin-bottom:18px;
   }
-  .term-bar{display:flex; gap:6px; padding:12px 14px; border-bottom:1px solid var(--line);}
-  .dot{width:10px; height:10px; border-radius:50%; background:#3a3f47;}
-  .term-body{padding:20px; font-family:'JetBrains Mono',monospace; font-size:13px;}
-  .term-body .cmd{color:var(--white); margin-bottom:14px;}
-  .term-body .cmd span{color:#7aa2f7;}
-  .test-row{display:flex; justify-content:space-between; opacity:0; animation:reveal .4s forwards;}
-  .test-row .t{color:var(--text);}
-  .test-row .status{color:var(--green);}
-  .test-row:nth-child(2){animation-delay:.3s}
-  .test-row:nth-child(3){animation-delay:.6s}
-  .test-row:nth-child(4){animation-delay:.9s}
-  .test-row:nth-child(5){animation-delay:1.2s}
-  .summary{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); color:var(--green); opacity:0; animation:reveal .4s forwards; animation-delay:1.5s; font-family:'JetBrains Mono',monospace; font-size:13px;}
-  @keyframes reveal{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
-
-  /* SPECIFICATION — SKILLS — adapted from concept 2, dark version */
-  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:30px;}
-  .section-head .num{font-family:'JetBrains Mono',monospace; color:var(--rust); font-size:13px;}
-  .section-head h2{font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; color:var(--white); letter-spacing:.5px;}
-
-  .spec-grid{
-    display:grid; grid-template-columns:repeat(3,1fr);
-    border-top:1px solid var(--line); border-left:1px solid var(--line); margin-bottom:32px;
+  .h-name{font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700;}
+  .h-role{color:var(--indigo); font-weight:600; font-size:14px; margin-top:6px;}
+  .h-sum{color:var(--sub); font-size:14.5px; margin-top:14px; max-width:560px;}
+  .status{
+    display:flex; align-items:center; gap:8px; background:var(--ok-soft); color:var(--ok);
+    font-size:12.5px; font-weight:600; padding:8px 14px; border-radius:20px; white-space:nowrap;
   }
-  .spec-grid div{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 16px;}
-  .spec-grid .k{font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--muted); letter-spacing:.5px;}
-  .spec-grid .v{font-size:14px; margin-top:4px; font-weight:500; color:var(--white);}
+  .status .dot{width:7px; height:7px; border-radius:50%; background:var(--ok);}
 
-  .skill-sheet{display:flex; flex-wrap:wrap; gap:10px;}
-  .skill-sheet span{
-    font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--panel);
-    border:1px solid var(--line); color:var(--text); padding:7px 13px; border-radius:2px;
+  /* Stat row */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:14px;}
+  .stat{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px;}
+  .stat .n{font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:700; color:var(--indigo);}
+  .stat .l{font-size:12px; color:var(--sub); margin-top:4px;}
+
+  /* Panels */
+  .panel{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:30px 34px; margin-bottom:18px;}
+  .panel-head{display:flex; align-items:center; gap:10px; margin-bottom:22px;}
+  .panel-head .ico{width:26px; height:26px; border-radius:7px; background:var(--indigo-soft); color:var(--indigo); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700;}
+  .panel-head h2{font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600;}
+
+  /* Skills grouped */
+  .skill-groups{display:grid; grid-template-columns:1fr 1fr; gap:18px 28px;}
+  .sg-label{font-size:11.5px; color:var(--sub); text-transform:uppercase; letter-spacing:.6px; margin-bottom:9px; font-weight:600;}
+  .sg-tags{display:flex; flex-wrap:wrap; gap:7px;}
+  .sg-tags span{background:var(--bg); border:1px solid var(--border); font-size:12.5px; padding:5px 11px; border-radius:8px; color:var(--ink);}
+
+  /* Experience */
+  .job{padding:20px 0; border-bottom:1px solid var(--border);}
+  .job:last-child{border-bottom:none; padding-bottom:0;}
+  .job:first-child{padding-top:0;}
+  .job-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px 16px;}
+  .job-title{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px;}
+  .job-co{color:var(--indigo); font-size:13px; font-weight:500; margin-top:2px;}
+  .job-when{font-size:12.5px; color:var(--sub); white-space:nowrap;}
+  .job ul{margin:12px 0 0 18px; color:#3a3d4a; font-size:13.5px;}
+  .job li{margin-bottom:6px;}
+
+  /* Certifications */
+  .certs{display:flex; flex-direction:column; gap:10px;}
+  .cert{display:flex; justify-content:space-between; align-items:center; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:12px 16px; font-size:13.5px;}
+  .cert .badge{font-size:11px; color:var(--indigo); font-weight:600; background:var(--indigo-soft); padding:3px 9px; border-radius:6px;}
+
+  /* Education */
+  .edu-row{display:flex; justify-content:space-between; align-items:baseline; font-size:14px;}
+  .edu-row .sub{color:var(--sub); font-size:13px; margin-top:3px;}
+
+  footer{text-align:center; padding-top:10px;}
+  .contact-row{display:flex; justify-content:center; gap:12px; flex-wrap:wrap;}
+  .contact-row a{
+    color:var(--ink); text-decoration:none; font-size:13px; border:1px solid var(--border);
+    background:var(--card); padding:9px 16px; border-radius:10px;
   }
-  .skill-sheet span:hover{border-color:var(--green); color:var(--green);}
+  .contact-row a:hover{border-color:var(--indigo); color:var(--indigo);}
 
-  /* PROJECTS as suites — from concept 1 */
-  .suite{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 24px; margin-bottom:14px;}
-  .suite-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
-  .suite-name{color:var(--white); font-weight:600; font-size:15px;}
-  .badge{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green); border:1px solid var(--green); border-radius:4px; padding:2px 8px;}
-  .suite p{color:var(--muted); font-size:14px; margin-bottom:10px;}
-  .stack{font-family:'JetBrains Mono',monospace; font-size:12px; color:#7aa2f7;}
-
-  /* EXPERIENCE as git log */
-  .log{border-left:2px solid var(--line); padding-left:22px; margin-left:6px;}
-  .commit{position:relative; padding-bottom:32px;}
-  .commit::before{content:''; position:absolute; left:-27px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--green); border:2px solid var(--bg);}
-  .commit .role{color:var(--white); font-size:15px; font-weight:600;}
-  .commit .co{color:var(--green); font-size:13px; margin-top:2px;}
-  .commit .when{color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:12px; margin-top:4px;}
-
-  footer{padding:60px 0; text-align:center;}
-  .contact-row{display:flex; justify-content:center; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:13px;}
-  .contact-row a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
-  .contact-row a:hover{color:var(--green); border-color:var(--green);}
+  @media(max-width:640px){
+    .header-card{grid-template-columns:1fr;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .skill-groups{grid-template-columns:1fr;}
+  }
 </style>
 </head>
 <body>
-  <div class="wrap hero">
-    <div class="prompt-line"><span>abhinav@sdet</span> ~ % whoami</div>
-    <div class="name">Abhinav Ojha</div>
-    <div class="role">Senior SDET · Test Automation Engineer</div>
-    <div class="desc">8+ years building test automation that ships confidence, not noise — API, UI, and performance testing across Playwright, Selenium, and Java/JS stacks.</div>
+  <div class="shell">
+    <div class="topbar">
+      <div class="brand"><div class="mark">AO</div><span>Abhinav Ojha</span></div>
+      <div class="nav"><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a></div>
+    </div>
 
-    <div class="terminal">
-      <div class="term-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
-      <div class="term-body">
-        <div class="cmd">$ <span>npx playwright test</span> --project=core</div>
-        <div class="test-row"><span class="t">✓ checkout flow completes end to end</span><span class="status">passed</span></div>
-        <div class="test-row"><span class="t">✓ API contract validated (Axios/Mocha)</span><span class="status">passed</span></div>
-        <div class="test-row"><span class="t">✓ POM suite — regression pack</span><span class="status">passed</span></div>
-        <div class="test-row"><span class="t">✓ mock layer — Masqrader (FastAPI)</span><span class="status">passed</span></div>
-        <div class="summary">5 passed · 0 failed · 8+ yrs in production &nbsp;→</div>
+    <div class="header-card">
+      <div>
+        <div class="h-name display">Senior SDET, 8+ years</div>
+        <div class="h-role">Test automation · frameworks · CI/CD</div>
+        <div class="h-sum">Building UI, API, and performance test automation with Playwright, Selenium, and TypeScript/Java — from framework design to CI/CD integration across GitHub Actions, Jenkins, and Azure DevOps.</div>
+      </div>
+      <div class="status"><span class="dot"></span>Open to new roles</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">8+</div><div class="l">Years experience</div></div>
+      <div class="stat"><div class="n">70%</div><div class="l">Regression cycle cut</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">API coverage delivered</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Fynd Star awards</div></div>
+    </div>
+
+    <div class="panel" id="skills">
+      <div class="panel-head"><div class="ico">◆</div><h2>Technical skills</h2></div>
+      <div class="skill-groups">
+        <div>
+          <div class="sg-label">Languages</div>
+          <div class="sg-tags"><span>Java</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span></div>
+        </div>
+        <div>
+          <div class="sg-label">Automation</div>
+          <div class="sg-tags"><span>Playwright</span><span>Selenium</span><span>Appium</span><span>Mocha</span><span>TestNG</span></div>
+        </div>
+        <div>
+          <div class="sg-label">API &amp; testing</div>
+          <div class="sg-tags"><span>REST Assured</span><span>Axios</span><span>Postman</span><span>FastAPI</span></div>
+        </div>
+        <div>
+          <div class="sg-label">Performance &amp; security</div>
+          <div class="sg-tags"><span>JMeter</span><span>K6</span><span>Groovy</span></div>
+        </div>
+        <div>
+          <div class="sg-label">CI/CD &amp; DevOps</div>
+          <div class="sg-tags"><span>GitHub Actions</span><span>GitLab CI/CD</span><span>Azure DevOps</span><span>Jenkins</span><span>Docker</span><span>Kubernetes</span></div>
+        </div>
+        <div>
+          <div class="sg-label">Data, cloud &amp; observability</div>
+          <div class="sg-tags"><span>PostgreSQL</span><span>MongoDB</span><span>AWS</span><span>Grafana</span><span>Kafka</span><span>New Relic</span></div>
+        </div>
       </div>
     </div>
+
+    <div class="panel" id="experience">
+      <div class="panel-head"><div class="ico">◆</div><h2>Experience</h2></div>
+
+      <div class="job">
+        <div class="job-top">
+          <div><div class="job-title">Senior Software Test Engineer (Solution Navigator)</div><div class="job-co">Johnson Controls International PLC, Bengaluru</div></div>
+          <div class="job-when">Apr 2026 — Present</div>
+        </div>
+        <ul>
+          <li>Developed and maintained UI automation frameworks using Playwright and TypeScript following the Page Object Model design pattern.</li>
+          <li>Created reusable fixtures, utilities, and helper functions to improve test maintainability and execution efficiency.</li>
+          <li>Designed and executed end-to-end test scenarios across Chromium, Firefox, and WebKit for cross-browser validation.</li>
+          <li>Contributed to regression automation efforts, reducing manual testing effort and improving release confidence.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <div><div class="job-title">Software Test Engineer (Marketplace Extension)</div><div class="job-co">FYND, Bengaluru</div></div>
+          <div class="job-when">Jul 2021 — Mar 2026</div>
+        </div>
+        <ul>
+          <li>Built and maintained Playwright automation frameworks in JavaScript with POM, fixtures, and custom utilities, cutting regression cycle time by 70%.</li>
+          <li>Designed end-to-end UI test suites across Chromium, Firefox, and WebKit, improving cross-browser coverage by 55%.</li>
+          <li>Integrated automated suites into Jenkins CI/CD pipelines using pipeline-as-code (Jenkinsfile) for nightly and on-demand builds.</li>
+          <li>Automated RESTful API validations using Axios and Mocha, achieving 100% API-level coverage for key services.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-top">
+          <div><div class="job-title">Software Test Engineer (Fanatil)</div><div class="job-co">Credentek Software &amp; Consultancy, Pune</div></div>
+          <div class="job-when">Nov 2017 — Jun 2021</div>
+        </div>
+        <ul>
+          <li>Created automation frameworks using Selenium with Java, reducing manual testing effort by 40%.</li>
+          <li>Conducted API testing using Postman and REST Assured, achieving consistent 100% coverage across regression cycles.</li>
+          <li>Led UAT cycles, preparing test plans, test data, and execution summaries across 7 successful major releases.</li>
+          <li>Produced weekly and monthly project status reports, improving stakeholder satisfaction by 15%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head"><div class="ico">◆</div><h2>Certifications</h2></div>
+      <div class="certs">
+        <div class="cert">Software Testing course — Seed Infotech<span class="badge">Certified</span></div>
+        <div class="cert">Intro to MongoDB — MongoDB University<span class="badge">Certified</span></div>
+        <div class="cert">Fynd Star Certificates — 2023, 2024, 2025<span class="badge">Award</span></div>
+        <div class="cert">Excellence Certificate — Yes Bank, 2019<span class="badge">Award</span></div>
+      </div>
+    </div>
+
+    <div class="panel" id="education">
+      <div class="panel-head"><div class="ico">◆</div><h2>Education</h2></div>
+      <div class="edu-row">
+        <div>
+          <div class="job-title">Bachelor of Computer Application — Computer Science</div>
+          <div class="sub">Swami Vivekanand Subharti University, Prayagraj</div>
+        </div>
+        <div class="job-when">Aug 2013 — May 2016</div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="contact-row">
+        <a href="mailto:abhinavojha59@hotmail.com">abhinavojha59@hotmail.com</a>
+        <a href="tel:+919794757466">+91-9794757466</a>
+        <a href="https://github.com/imabhinavojha">GitHub</a>
+        <a href="https://www.linkedin.com/in/abhinavojha95/">LinkedIn</a>
+      </div>
+    </footer>
   </div>
-
-  <section class="wrap">
-    <div class="section-head"><span class="num">§1</span><h2>Specification — skills</h2></div>
-    <div class="spec-grid">
-      <div><div class="k">Experience</div><div class="v">8+ years</div></div>
-      <div><div class="k">Core stack</div><div class="v">Playwright / Java</div></div>
-      <div><div class="k">Notice period</div><div class="v">30 days</div></div>
-    </div>
-    <div class="skill-sheet">
-      <span>Java</span><span>JavaScript</span><span>Python</span><span>Playwright</span>
-      <span>Selenium</span><span>Axios</span><span>REST API</span><span>Postman</span>
-      <span>Mocha</span><span>FastAPI</span><span>CI/CD</span><span>SQL</span>
-      <span>MongoDB</span><span>K6</span><span>JMeter</span><span>Groovy</span>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="section-head"><span class="num">§2</span><h2>Test suites — projects</h2></div>
-    <div class="suite">
-      <div class="suite-top"><span class="suite-name">UI automation —  Solution Navigator (Johnson Controls)</span><span class="badge">PASS</span></div>
-      <p>Built and maintained a POM framework, lifting UI automation coverage and efficiency by 80%.</p>
-      <div class="stack">playwright · typescript</div>
-    </div>
-    <div class="suite">
-      <div class="suite-top"><span class="suite-name">API testing — Jio (Fynd)</span><span class="badge">PASS</span></div>
-      <p>Engineered comprehensive API tests achieving 80% coverage and a faster feedback loop.</p>
-      <div class="stack">axios · node.js · mocha</div>
-    </div>
-    <div class="suite">
-      <div class="suite-top"><span class="suite-name">UI automation — Jio (Fynd)</span><span class="badge">PASS</span></div>
-      <p>Built and maintained a POM framework, lifting UI automation coverage and efficiency by 65%.</p>
-      <div class="stack">playwright · javascript</div>
-    </div>
-    <div class="suite">
-      <div class="suite-top"><span class="suite-name">Masqrader mock platform — Jio (Fynd)</span><span class="badge">PASS</span></div>
-      <p>Designed a scalable mock API layer, cutting backend dev time by 90%.</p>
-      <div class="stack">fastapi · python</div>
-    </div>
-    <div class="suite">
-      <div class="suite-top"><span class="suite-name">UI automation — CredenTek</span><span class="badge">PASS</span></div>
-      <p>Selenium WebDriver + POM framework, cutting manual testing effort by 40%.</p>
-      <div class="stack">selenium · java</div>
-    </div>
-  </section>
-
-  <section class="wrap">
-    <div class="section-head"><span class="num">§3</span><h2>Experience log</h2></div>
-    <div class="log">
-      <div class="commit">
-        <div class="role">Senior Software Test Engineer (Solution Navigator)</div>
-        <div class="co">Johnson Controls India, Bengaluru</div>
-        <div class="when">Apr 2026 → present</div>
-      </div>
-      <div class="commit">
-        <div class="role">Software Test Engineer (Marketplace Extension)</div>
-        <div class="co">FYND, Bengaluru</div>
-        <div class="when">Jul 2021 → Mar 2026</div>
-      </div>
-      <div class="commit">
-        <div class="role">Software Test Engineer (Fanatil)</div>
-        <div class="co">Credentek Software & Consultancy, Pune</div>
-        <div class="when">Nov 2017 → Jun 2021</div>
-      </div>
-      <div class="commit">
-        <div class="role">Bachelor of Computer Application</div>
-        <div class="co">Swami Vivekanand Subharti University</div>
-        <div class="when">2016</div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="wrap">
-    <div class="contact-row">
-      <a href="mailto:abhinavojha59@hotmail.com">email</a>
-      <a href="https://github.com/imabhinavojha">github</a>
-      <a href="https://www.linkedin.com/in/abhinavojha95/">linkedin</a>
-      <a href="#">resume.pdf</a>
-    </div>
-  </footer>
 </body>
 </html>
