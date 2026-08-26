@@ -50,7 +50,7 @@ I'm a Senior SDET building test automation frameworks — UI, API, and performan
 
 | Project | Description |
 |---|---|
-| [RAG-powered test case generator](https) | RAG-based prototype that ingests requirement documents and retrieves relevant context to generate test scenarios, negative cases, boundary conditions, and traceable test cases. |
+| [RAG-powered test case generator](https://github.com/imabhinavojha/RAG-powered-test-case-generator) | RAG-based prototype that ingests requirement documents and retrieves relevant context to generate test scenarios, negative cases, boundary conditions, and traceable test cases. |
 | [Self-healing locators (AI)](https) | Playwright + TypeScript experiment that detects failed selectors, uses DOM context and AI-assisted matching to propose resilient fallback locators, and records selector-healing evidence. |
 | [AI test automation assistant](https) | LLM-assisted QA utility that summarizes failed Playwright/Jenkins test runs, correlates logs and screenshots, and suggests likely root causes with recommended debugging steps. |
 | [JMeter + Groovy performance framework](https://github.com/imabhinavojha/JMeter-Groovy-performance-framework) | Scalable API performance-testing framework using Apache JMeter, Groovy/JSR223 scripting, CSV-driven test data, assertions, correlation, and HTML reporting for load, stress, and endurance tests. |
