@@ -16,8 +16,8 @@ Hi there! I'm Abhinav, a software developer passionate about building scalable w
 
 ## 📫 Connect with Me
 - [GitHub](https://github.com/imabhinavojha)
-- [LinkedIn](https://linkedin.com/in/abhinavojha) (add your link)
-- [Twitter](https://twitter.com/abhinavojha) (add your link)
+- [LinkedIn](https://linkedin.com/in/abhinavojha95)
+- [Twitter](https://x.com/imabhinavojha)
 
 ## 📈 GitHub Stats
 ![Abhinav's GitHub stats](https://github-readme-stats.vercel.app/api?username=imabhinavojha&show_icons=true&theme=radical)
