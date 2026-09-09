@@ -1,237 +1,185 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Ojha - Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Abhinav Ojha — SDET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d1117; --panel:#11161d; --line:#1f2630;
+    --text:#c9d1d9; --muted:#6e7681; --white:#eef2f6;
+    --green:#5fd97a; --amber:#e8b339; --rust:#e8916a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  .wrap{max-width:860px; margin:0 auto; padding:0 24px;}
+  section{padding:80px 0; border-bottom:1px solid var(--line);}
 
-        :root {
-            --light-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --light-card-bg: white;
-            --light-text: #333;
-            --light-muted: #666;
-            --light-card-muted: #f5f5f5;
-            --light-primary: #667eea;
-            --light-primary-hover: #764ba2;
+  /* HERO / terminal — from concept 1 */
+  .hero{padding-top:100px;}
+  .prompt-line{color:var(--muted); font-size:13px; margin-bottom:18px; font-family:'JetBrains Mono',monospace;}
+  .prompt-line span{color:var(--green);}
+  .name{font-family:'JetBrains Mono',monospace; font-size:44px; font-weight:700; color:var(--white); letter-spacing:-0.5px;}
+  .role{color:var(--green); font-size:16px; margin-top:10px; font-family:'JetBrains Mono',monospace;}
+  .desc{color:var(--muted); max-width:560px; margin-top:18px; font-size:15px;}
 
-            --dark-bg: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            --dark-card-bg: rgba(255, 255, 255, 0.1);
-            --dark-text: #f0f0f0;
-            --dark-muted: #ccc;
-            --dark-card-muted: rgba(255, 255, 255, 0.15);
-            --dark-primary: #4cc9f0;
-            --dark-primary-hover: #f72585;
-        }
+  .terminal{
+    margin-top:44px; background:var(--panel); border:1px solid var(--line);
+    border-radius:8px; overflow:hidden;
+  }
+  .term-bar{display:flex; gap:6px; padding:12px 14px; border-bottom:1px solid var(--line);}
+  .dot{width:10px; height:10px; border-radius:50%; background:#3a3f47;}
+  .term-body{padding:20px; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .term-body .cmd{color:var(--white); margin-bottom:14px;}
+  .term-body .cmd span{color:#7aa2f7;}
+  .test-row{display:flex; justify-content:space-between; opacity:0; animation:reveal .4s forwards;}
+  .test-row .t{color:var(--text);}
+  .test-row .status{color:var(--green);}
+  .test-row:nth-child(2){animation-delay:.3s}
+  .test-row:nth-child(3){animation-delay:.6s}
+  .test-row:nth-child(4){animation-delay:.9s}
+  .test-row:nth-child(5){animation-delay:1.2s}
+  .summary{margin-top:16px; padding-top:14px; border-top:1px dashed var(--line); color:var(--green); opacity:0; animation:reveal .4s forwards; animation-delay:1.5s; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  @keyframes reveal{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
 
-        body[data-theme="light"] {
-            --bg: var(--light-bg);
-            --card-bg: var(--light-card-bg);
-            --text: var(--light-text);
-            --muted: var(--light-muted);
-            --card-muted: var(--light-card-muted);
-            --primary: var(--light-primary);
-            --primary-hover: var(--light-primary-hover);
-        }
+  /* SPECIFICATION — SKILLS — adapted from concept 2, dark version */
+  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:30px;}
+  .section-head .num{font-family:'JetBrains Mono',monospace; color:var(--rust); font-size:13px;}
+  .section-head h2{font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; color:var(--white); letter-spacing:.5px;}
 
-        body[data-theme="dark"] {
-            --bg: var(--dark-bg);
-            --card-bg: var(--dark-card-bg);
-            --text: var(--dark-text);
-            --muted: var(--dark-muted);
-            --card-muted: var(--dark-card-muted);
-            --primary: var(--dark-primary);
-            --primary-hover: var(--dark-primary-hover);
-        }
+  .spec-grid{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line); border-left:1px solid var(--line); margin-bottom:32px;
+  }
+  .spec-grid div{border-right:1px solid var(--line); border-bottom:1px solid var(--line); padding:14px 16px;}
+  .spec-grid .k{font-family:'JetBrains Mono',monospace; font-size:10px; text-transform:uppercase; color:var(--muted); letter-spacing:.5px;}
+  .spec-grid .v{font-size:14px; margin-top:4px; font-weight:500; color:var(--white);}
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
+  .skill-sheet{display:flex; flex-wrap:wrap; gap:10px;}
+  .skill-sheet span{
+    font-family:'JetBrains Mono',monospace; font-size:12px; background:var(--panel);
+    border:1px solid var(--line); color:var(--text); padding:7px 13px; border-radius:2px;
+  }
+  .skill-sheet span:hover{border-color:var(--green); color:var(--green);}
 
-        .container {
-            background: var(--card-bg);
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            padding: 40px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-        }
+  /* PROJECTS as suites — from concept 1 */
+  .suite{background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:22px 24px; margin-bottom:14px;}
+  .suite-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
+  .suite-name{color:var(--white); font-weight:600; font-size:15px;}
+  .badge{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--green); border:1px solid var(--green); border-radius:4px; padding:2px 8px;}
+  .suite p{color:var(--muted); font-size:14px; margin-bottom:10px;}
+  .stack{font-family:'JetBrains Mono',monospace; font-size:12px; color:#7aa2f7;}
 
-        h1 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 2.5em;
-        }
+  /* EXPERIENCE as git log */
+  .log{border-left:2px solid var(--line); padding-left:22px; margin-left:6px;}
+  .commit{position:relative; padding-bottom:32px;}
+  .commit::before{content:''; position:absolute; left:-27px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--green); border:2px solid var(--bg);}
+  .commit .role{color:var(--white); font-size:15px; font-weight:600;}
+  .commit .co{color:var(--green); font-size:13px; margin-top:2px;}
+  .commit .when{color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:12px; margin-top:4px;}
 
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.1em;
-            margin-bottom: 30px;
-        }
-
-        .bio {
-            background: var(--card-muted);
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .skills {
-            margin: 30px 0;
-        }
-
-        .skills h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-        }
-
-        .links {
-            margin-top: 30px;
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .links a {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .links a:hover {
-            background: var(--primary-hover);
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
-        }
-
-        .theme-toggle .sun,
-        .theme-toggle .moon {
-            display: none;
-        }
-
-        body[data-theme="light"] .theme-toggle .moon {
-            display: block;
-        }
-
-        body[data-theme="dark"] .theme-toggle .sun {
-            display: block;
-        }
-    </style>
+  footer{padding:60px 0; text-align:center;}
+  .contact-row{display:flex; justify-content:center; gap:28px; flex-wrap:wrap; font-family:'JetBrains Mono',monospace; font-size:13px;}
+  .contact-row a{color:var(--text); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .contact-row a:hover{color:var(--green); border-color:var(--green);}
+</style>
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <span class="sun">☀️</span>
-        <span class="moon">🌙</span>
-    </button>
+  <div class="wrap hero">
+    <div class="prompt-line"><span>abhinav@sdet</span> ~ % whoami</div>
+    <div class="name">Abhinav Ojha</div>
+    <div class="role">Senior SDET · Test Automation Engineer</div>
+    <div class="desc">8+ years building test automation that ships confidence, not noise — API, UI, and performance testing across Playwright, Selenium, and Java/JS stacks.</div>
 
-    <div class="container">
-        <h1>Hi, I'm Abhinav Ojha 👋</h1>
-        <p class="subtitle">Senior SDET | Test Automation Expert</p>
-
-        <div class="bio">
-            <p>I'm a Senior SDET with 8+ years of experience building robust test automation frameworks using Playwright, Selenium, TypeScript, and Java. Specializing in CI/CD pipelines, performance testing, and turning flaky tests into reliable systems.</p>
-        </div>
-
-        <div class="skills">
-            <h3>🛠️ Tech Stack</h3>
-            <div class="skill-tags">
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Playwright</span>
-                <span class="skill-tag">Selenium</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">Jenkins</span>
-                <span class="skill-tag">GitHub Actions</span>
-            </div>
-        </div>
-
-        <div class="links">
-            <a href="mailto:abhinavojha59@hotmail.com">📧 Email</a>
-            <a href="https://www.linkedin.com/in/abhinavojha95/" target="_blank">💼 LinkedIn</a>
-            <a href="https://github.com/imabhinavojha" target="_blank">🐙 GitHub</a>
-            <a href="https://twitter.com/imabhinavojha" target="_blank">𝕏 Twitter</a>
-        </div>
+    <div class="terminal">
+      <div class="term-bar"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+      <div class="term-body">
+        <div class="cmd">$ <span>npx playwright test</span> --project=core</div>
+        <div class="test-row"><span class="t">✓ checkout flow completes end to end</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ API contract validated (Axios/Mocha)</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ POM suite — regression pack</span><span class="status">passed</span></div>
+        <div class="test-row"><span class="t">✓ mock layer — Masqrader (FastAPI)</span><span class="status">passed</span></div>
+        <div class="summary">5 passed · 0 failed · 8+ yrs in production &nbsp;→</div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+  <section class="wrap">
+    <div class="section-head"><span class="num">§1</span><h2>Specification — skills</h2></div>
+    <div class="spec-grid">
+      <div><div class="k">Experience</div><div class="v">8+ years</div></div>
+      <div><div class="k">Core stack</div><div class="v">Playwright / Java</div></div>
+      <div><div class="k">Notice period</div><div class="v">30 days</div></div>
+    </div>
+    <div class="skill-sheet">
+      <span>Java</span><span>JavaScript</span><span>Python</span><span>Playwright</span>
+      <span>Selenium</span><span>Axios</span><span>REST API</span><span>Postman</span>
+      <span>Mocha</span><span>FastAPI</span><span>CI/CD</span><span>SQL</span>
+      <span>MongoDB</span><span>K6</span><span>JMeter</span><span>Groovy</span>
+    </div>
+  </section>
 
-        // Check for saved theme preference or use system preference
-        const currentTheme = localStorage.getItem('theme') ||
-                            (prefersDarkScheme.matches ? 'dark' : 'light');
+  <section class="wrap">
+    <div class="section-head"><span class="num">§2</span><h2>Test suites — projects</h2></div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">API testing — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Engineered comprehensive API tests achieving 80% coverage and a faster feedback loop.</p>
+      <div class="stack">axios · node.js · mocha</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">UI automation — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Built and maintained a POM framework, lifting UI automation coverage and efficiency by 65%.</p>
+      <div class="stack">playwright · javascript</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">Masqrader mock platform — Jio (Fynd)</span><span class="badge">PASS</span></div>
+      <p>Designed a scalable mock API layer, cutting backend dev time by 90%.</p>
+      <div class="stack">fastapi · python</div>
+    </div>
+    <div class="suite">
+      <div class="suite-top"><span class="suite-name">UI automation — CredenTek</span><span class="badge">PASS</span></div>
+      <p>Selenium WebDriver + POM framework, cutting manual testing effort by 40%.</p>
+      <div class="stack">selenium · java</div>
+    </div>
+  </section>
 
-        // Apply the theme
-        document.documentElement.setAttribute('data-theme', currentTheme);
+  <section class="wrap">
+    <div class="section-head"><span class="num">§3</span><h2>Experience log</h2></div>
+    <div class="log">
+      <div class="commit">
+        <div class="role">Senior Software Test Engineer (Solution Navigator)</div>
+        <div class="co">Johnson Controls International PLC, Bengaluru</div>
+        <div class="when">Apr 2026 → present</div>
+      </div>
+      <div class="commit">
+        <div class="role">Software Test Engineer (Marketplace Extension)</div>
+        <div class="co">FYND, Bengaluru</div>
+        <div class="when">Jul 2021 → Mar 2026</div>
+      </div>
+      <div class="commit">
+        <div class="role">Software Test Engineer (Fanatil)</div>
+        <div class="co">Credentek Software & Consultancy, Pune</div>
+        <div class="when">Nov 2017 → Jun 2021</div>
+      </div>
+      <div class="commit">
+        <div class="role">Bachelor of Computer Application</div>
+        <div class="co">Swami Vivekanand Subharti University</div>
+        <div class="when">2016</div>
+      </div>
+    </div>
+  </section>
 
-        // Toggle theme when button is clicked
-        themeToggle.addEventListener('click', () => {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    </script>
+  <footer class="wrap">
+    <div class="contact-row">
+      <a href="mailto:abhinavojha59@hotmail.com">email</a>
+      <a href="https://github.com/imabhinavojha">github</a>
+      <a href="https://www.linkedin.com/in/abhinavojha95/">linkedin</a>
+      <a href="#">resume.pdf</a>
+    </div>
+  </footer>
 </body>
 </html>
